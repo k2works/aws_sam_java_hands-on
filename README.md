@@ -91,6 +91,32 @@ aws cloudformation delete-stack --stack-name java-hands-on
 ### S３バケットの削除
 ```bash
 aws s3 rb s3://java-hands-on --force
+
+### git-secretsの設定
+インストール
+```bash
+cd /home/vagrant
+git clone https://github.com/awslabs/git-secrets.git
+cd git-secrets/
+sudo make install
+```
+既存プロジェクトにフックを設定
+```bash
+cd /vagrant
+git secrets --install
+```
+拒否条件を設定
+```bash
+git secrets --register-aws --global
+```
+レポジトリをスキャンする
+```bash
+cd /vagrant
+git secrets --scan -r 
+```
+許可ルールを追加する
+```bash
+git config --add secrets.allowed sam-app/hello_world/event_file.json
 ```
 
 **[⬆ back to top](#構成)**
@@ -122,3 +148,4 @@ sam local start-api --host 0.0.0.0
 + [Pythonのパッケージ管理システムpipのインストールと使い方](https://uxmilk.jp/12691) 
 + [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
 + [[Java全般]SDKMAN（旧gvm）でJavaやGrvoovyをインストール](https://qiita.com/saba1024/items/967ee3d8a79440a97336)
++ [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1) 
