@@ -35,9 +35,7 @@ vagrant ssh
 + aws-sam-cliのインストール
 
 ```bash
-pip install --user aws-sam-cli
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.3/install.sh | bash
-source ~/.bashrc 
+pip install --user aws-sam-cli 
 curl -s api.sdkman.io | bash
 source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 sdk list maven
