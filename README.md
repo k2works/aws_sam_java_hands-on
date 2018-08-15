@@ -65,6 +65,22 @@ source .env
 aws ec2 describe-regions
 ```
 
+デプロイ用のS3バケットを用意する
+```bash
+aws s3 mb s3://java-hands-on
+```
+デプロイを実行する
+````bash
+cd /vagrant/sam-app
+sam validate
+sam package --template-file template.yaml --s3-bucket java-hands-on --output-template-file packaged.yaml
+sam deploy --template-file packaged.yaml --stack-name java-hands-on --capabilities CAPABILITY_IAM
+````
+デプロイが成功したら動作を確認する
+```bash
+aws cloudformation describe-stacks --stack-name java-hands-on --query 'Stacks[].Outputs[1]'
+```
+
 **[⬆ back to top](#構成)**
 
 ## 運用
