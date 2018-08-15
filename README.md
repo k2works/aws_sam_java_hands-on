@@ -128,7 +128,7 @@ git secrets --scan -r
 ```
 許可ルールを追加する
 ```bash
-git config --add secrets.allowed sam-app/hello_world/event_file.json
+git config --add secrets.allowed sam-app/event_file.json
 ```
 
 **[⬆ back to top](#構成)**
