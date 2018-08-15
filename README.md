@@ -84,6 +84,14 @@ aws cloudformation describe-stacks --stack-name java-hands-on --query 'Stacks[].
 **[⬆ back to top](#構成)**
 
 ## 運用
+### スタックの削除
+```bash
+aws cloudformation delete-stack --stack-name java-hands-on
+```
+### S３バケットの削除
+```bash
+aws s3 rb s3://java-hands-on --force
+```
 
 **[⬆ back to top](#構成)**
 
