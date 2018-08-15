@@ -140,6 +140,18 @@ sam local start-api --host 0.0.0.0
 ```
 [http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
+### コードカバレッジのセットアップ
+pom.xmlファイルにJaCoCoのレポジトリ情報を追加して以下のコマンドを実行する
+```bash
+mvn install
+mvn help:describe -Dplugin=org.jacoco:jacoco-maven-plugin -Ddetail
+```
+カバレッジレポートを作る
+```bash
+mvn clean jacoco:prepare-agent test jacoco:report
+ruby -run -e httpd ./target/site/jacoco -p 8000
+```
+[http://192.168.33.10:8000/](http://192.168.33.10:8000/)に接続して確認する
 
 **[⬆ back to top](#構成)**
 
@@ -148,4 +160,5 @@ sam local start-api --host 0.0.0.0
 + [Pythonのパッケージ管理システムpipのインストールと使い方](https://uxmilk.jp/12691) 
 + [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
 + [[Java全般]SDKMAN（旧gvm）でJavaやGrvoovyをインストール](https://qiita.com/saba1024/items/967ee3d8a79440a97336)
-+ [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1) 
++ [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1)
++ [JaCoCoでJavaのコードカバレッジレポートを作る](https://ishiis.net/2016/10/13/jacoco-coverage/) 
