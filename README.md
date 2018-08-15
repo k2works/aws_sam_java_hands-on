@@ -42,6 +42,8 @@ curl -s api.sdkman.io | bash
 source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 sdk list maven
 sdk use maven 3.5.4
+sdk list java
+sdk use java 8.0.181-zulu
 ```
 
 **[⬆ back to top](#構成)**
@@ -61,6 +63,17 @@ cd /vagrant
 sam init --runtime java
 cd sam-app
 ```
+
+### ローカルでテストする
+```bash
+cd /vagrant/sam-app
+mvn install
+mvn test
+sam local generate-event api > event_file.json
+sam local invoke HelloWorldFunction --event event_file.json
+sam local start-api --host 0.0.0.0
+```
+[http://192.168.33.10:3000/hello](http://192.168.33.10:3000/hello)に接続して確認する
 
 
 **[⬆ back to top](#構成)**
