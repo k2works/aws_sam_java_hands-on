@@ -46,6 +46,20 @@ sdk list java
 sdk use java 8.0.181-zulu
 ```
 
+### ドキュメント環境構築
+```bash
+cd /vagarnt
+sdk list gradle
+sdk use gradle 4.9
+```
+ドキュメントの生成
+```bash
+gradle asciidoctor
+ruby -run -e httpd ./docs t -p 8000
+```
+[http://192.168.33.10:8000/](http://192.168.33.10:8000/)に接続して確認する
+
+
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -161,4 +175,5 @@ ruby -run -e httpd ./target/site/jacoco -p 8000
 + [aws-sam-local 改め aws-sam-cli の新機能 sam init を試す](https://qiita.com/hayao_k/items/841026f9675d163b58d5)
 + [[Java全般]SDKMAN（旧gvm）でJavaやGrvoovyをインストール](https://qiita.com/saba1024/items/967ee3d8a79440a97336)
 + [クラウド破産しないように git-secrets を使う](https://qiita.com/pottava/items/4c602c97aacf10c058f1)
-+ [JaCoCoでJavaのコードカバレッジレポートを作る](https://ishiis.net/2016/10/13/jacoco-coverage/) 
++ [JaCoCoでJavaのコードカバレッジレポートを作る](https://ishiis.net/2016/10/13/jacoco-coverage/)
++ [図入りのAsciiDoc記述からPDFを生成する環境をGradleで簡単に用意する](https://qiita.com/tokumoto/items/d37ab3de5bdbee307769) 
