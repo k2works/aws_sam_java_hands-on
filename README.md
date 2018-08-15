@@ -55,6 +55,13 @@ sdk use maven 3.5.4
 **[⬆ back to top](#構成)**
 
 ## 開発
+### アプリケーションの作成
+```bash
+cd /vagrant
+sam init --runtime java
+cd sam-app
+```
+
 
 **[⬆ back to top](#構成)**
 
