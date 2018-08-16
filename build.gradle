@@ -22,6 +22,7 @@ apply plugin: 'org.kordamp.gradle.livereload'
 
 asciidoctor {
     dependsOn 'clean'
+    sourceDir = file('./sam-app/src/docs/asciidoc')
     requires = ['asciidoctor-diagram']
     backends = ['html5', 'pdf']
     outputDir = file('docs')
